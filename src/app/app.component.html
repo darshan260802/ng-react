@@ -1,0 +1,47 @@
+<div class="ng-wrapper w-screen h-screen overflow-auto bg-rose-300" *ngIf="mode == 'angular'">
+  <div class="container pt-14 mx-auto">
+    <div class="actions flex justify-center pt-10">
+      <input #todoInput type="text" placeholder="Enter Todo Here " class=" outline-none rounded-md rounded-r-none px-2 py-1 w-1/2">
+      <button (click)="addTodo(todoInput)"  type="button" class="px-5 py-1.5 rounded-l-none rounded-md bg-rose-500 text-white">Add</button>
+    </div>
+
+    <div class="todo-list w-2/3 mx-auto mt-8 flex flex-col gap-2">
+      <div *ngFor="let todo of todoList; trackBy:trackByTodo" class="todo flex w-full p-2 bg-cyan-800 text-white mx-auto items-center rounded-md">
+        <div class="status px-2 flex items-center">
+          <input type="checkbox" [(ngModel)]="todo.status" (ngModelChange)="localSync(true)"  class="outline-none h-4 w-4 leading-none accent-rose-400" name="status" id="status">
+        </div>
+        <div class="title flex-1">
+          <p class="max-w-full overflow-ellipsis" [ngClass]="{strike: todo.status}" >{{todo.todo}}</p>
+        </div>
+        <div class="action px-2 text-black">
+          <button class="bg-rose-200 px-2 rounded-md" (click)="deleteTodo(todo.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="react-wrapper w-screen h-screen overflow-auto bg-cyan-700" *ngIf="mode == 'react'">
+  <div id="react-root"></div>
+</div>
+
+<div class="switch-wrapper fixed top-2 left-1/2 -translate-x-1/2 z-10">
+  <div
+    class="switch flex items-center justify-center rounded-md shadow-md divide-x-2 overflow-hidden"
+  >
+    <button
+      class="p-2 w-20 bg-rose-600/40 text-white transition-colors duration-300"
+      [ngClass]="{ rose: mode == 'angular' }"
+      (click)="switchMode('angular')"
+    >
+      Angular
+    </button>
+    <button
+      class="p-2 w-20 bg-cyan-600/40 text-white transition-colors duration-300"
+      [ngClass]="{ cyan: mode == 'react' }"
+      (click)="switchMode('react')"
+    >
+      React
+    </button>
+  </div>
+</div>

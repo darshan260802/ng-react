@@ -1,0 +1,1 @@
+{"mappings":"AACA;;AACA;;AACA","sources":["src/styles.scss"],"sourcesContent":["/* You can add global styles to this file, and also import other style files */\n@tailwind base;\n@tailwind components;\n@tailwind utilities;"],"names":[],"version":3,"file":"main.css.map","sourceRoot":"../"}
