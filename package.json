@@ -1,8 +1,16 @@
 {
   "name": "ng-react",
   "version": "0.0.0",
+  "source":"./src_react/main.js",
+  "targets":{
+    "default":{
+      "distDir":"./dist_react"
+    }
+  },
   "scripts": {
     "ng": "ng",
+    "react_build":"parcel build",
+    "react_watch":"parcel watch",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
