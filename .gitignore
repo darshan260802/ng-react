@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+/dist_react
 /tmp
 /out-tsc
 /bazel-out
